@@ -10,12 +10,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="umd.cmsc434.fitness_pyramid.MainActivity">
 
-    <TextView
-        android:text="Add Meal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:id="@+id/addMeal" />
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/addMealButton"
+        android:layout_marginTop="11dp"
+        android:id="@+id/listViewMeal" />
 
     <EditText
         android:layout_width="match_parent"
@@ -24,8 +24,7 @@
         android:text="Meal"
         android:ems="10"
         android:id="@+id/mealName"
-        android:layout_marginTop="31dp"
-        android:layout_below="@+id/addMeal"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -38,8 +37,7 @@
         android:text="Calorie"
         android:layout_below="@+id/mealName"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="32dp" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:text="Add Meal"
@@ -47,8 +45,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/addMealButton"
         android:layout_below="@+id/mealCalories"
-        android:layout_toRightOf="@+id/addMeal"
-        android:layout_toEndOf="@+id/addMeal"
-        android:layout_marginTop="30dp" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
