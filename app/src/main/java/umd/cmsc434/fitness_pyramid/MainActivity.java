@@ -24,6 +24,8 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private Button addMealButton;
     private Button takePictureButton;
     private ImageView imageView;
+    private ImageView imageView2;
 
     DatabaseReference databaseMeal;
 
@@ -79,6 +82,19 @@ public class MainActivity extends AppCompatActivity {
         addMealButton= (Button) findViewById(R.id.addMealButton);
         takePictureButton = (Button) findViewById(R.id.cameriaButton);
         imageView = (ImageView) findViewById(R.id.imageView);
+
+
+        // Reference to an image file in Firebase Storage
+        StorageReference imageStorageReference = FirebaseStorage.getInstance().getReferenceFromUrl("gs://fitness-pyramid.appspot.com/Photos1490312907691");
+
+// ImageView in your Activity
+        imageView2 = (ImageView) findViewById(R.id.imageView2);
+
+// Load the image using Glide
+        Glide.with(this /* context */)
+                .using(new FirebaseImageLoader())
+                .load(imageStorageReference)
+                .into(imageView2);
 
         listViewMeal = (ListView) findViewById(R.id.listViewMeal);
         mealList = new ArrayList<>();
